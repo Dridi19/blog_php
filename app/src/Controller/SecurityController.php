@@ -12,10 +12,10 @@ class SecurityController extends AbstractController
     public function login()
     {
         session_start();
-        if (!($_SESSION["id"] || isset($_POST['username']))) {
+        if (!($_SESSION|| isset($_POST['username']))) {
             $path = "src/ui/login.php";
             require_once $path;
-        } else if($_SESSION["id"]) {
+        } else if($_SESSION) {
             header("Location: /");
             exit;
         }
@@ -29,15 +29,12 @@ class SecurityController extends AbstractController
             header("Location: /?error=notfound");
             exit;
         }
-
         if ($user->passwordMatch($formPwd)) {
             $id = $user->getId();
             $_SESSION["id"] = $id;
-            header("Location: /");
-            exit;
         }
 
-        header("Location: /?error=notfound");
+        header("Location: /");
         exit;
         }
     }
@@ -59,12 +56,21 @@ class SecurityController extends AbstractController
             }else { $admin = 0; };
             $userManager = new UserManager(new PDOFactory());
             $userManager->insertUser($formUsername,$formPwd,$firstname,$lastname,$email,$admin);
+            header("Location: /login");
+            exit; 
             
         }
         else{
             header("Location: /");
             exit; 
         }
-
+    }
+    #[Route('/logout', name: "logout", methods: ["GET","POST"])]
+    public function logout() {
+        session_start();
+        unset($_SESSION['id']);
+        session_destroy();
+        header('Location: /login');
+        exit(); 
     }
 }

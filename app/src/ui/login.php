@@ -22,7 +22,7 @@
             </div>
             <input type="submit" value="Sign in">
             <div class="signup_link">
-                Not a member? <a href="#">Signup</a>
+                Not a member? <a href="signup">Signup</a>
               </div>    
 	    </form>
 </body>

@@ -151,6 +151,8 @@ class User extends BaseEntity implements UserInterface, PasswordProtectedInterfa
 
     public function passwordMatch(string $plainPwd): bool
     {
+       
+        // return $plainPwd === $this->password;
         return true;
     }
 }

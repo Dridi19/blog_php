@@ -1,10 +1,13 @@
 <?php /** @var App\Entity\User $user */ ?>
+<a href="/login">Log in</a>
+<a href="/logout">Logout</a>
 <h1><?= $trucs; ?></h1>
-
-    <form action="" method="POST">
+    <?php if ($_SESSION["id"]){
+    echo '<form action="" method="POST">
         <input type="text" placeholder="content" name="content">
         <button class="btn" type="submit" name="post_btn" >Create</button>
-    </form>
+        </form>';
+    };?>
 <?php
 /** @var App\Entity\Post[] $posts */
 foreach ($posts as $post) {
