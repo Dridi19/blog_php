@@ -8,6 +8,10 @@
     </thead>
 
     <tbody>
-        <td><php $irstname></td>
+        <td><php $firstname>jj</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
     </tbody>
 </table>
