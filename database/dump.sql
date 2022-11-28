@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS User
     email     VARCHAR(255) NOT NULL,
     firstName VARCHAR(255),
     lastName  VARCHAR(255),
-    gender    CHAR(1),
+    gender    VARCHAR(25),
     roles     int NOT NULL
 );
 

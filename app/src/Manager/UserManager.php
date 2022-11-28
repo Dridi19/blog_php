@@ -37,9 +37,9 @@ class UserManager extends BaseManager
         return null;
     }
 
-    public function insertUser($formUsername,$formPwd,$firstname,$lastname,$email,$admin)
+    public function insertUser($formUsername,$formPwd,$firstname,$lastname,$email,$admin,$gender)
     {
-        $query = $this->pdo->prepare("INSERT INTO User (username,password,email, firstName, lastName, roles ) VALUES ('$formUsername','$formPwd','$email','$firstname','$lastname','$admin')");
+        $query = $this->pdo->prepare("INSERT INTO User (username,password,email, firstName, lastName, roles, gender ) VALUES ('$formUsername','$formPwd','$email','$firstname','$lastname','$admin', '$gender')");
         $query->execute();
         
     }

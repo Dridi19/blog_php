@@ -1,3 +1,13 @@
+
+
+ <style> .card {
+    padding: 5px;
+ margin: 5px;
+ border: 1px solid black;
+ border-radius:3px;
+ background-color:rgba(180, 180, 180, 0.501) ;
+}
+</style> 
 <?php /** @var App\Entity\User $user */ ?>
 <a href="/login">Log in</a>
 <a href="/logout">Logout</a>
@@ -11,7 +21,7 @@
 <?php
 /** @var App\Entity\Post[] $posts */
 foreach ($posts as $post) {
-    echo '<div>'. $post->getContent().'</div>';
+    echo '<div class="card">'. $post->getContent().'</div>';
     if ( $post->getAuthor() == $_SESSION["id"]) {
         $id = $post->getId();
         echo '<button class="btn" type="submit" name="post_btn"><a href="/post/'.$id.'/delete">delete</a></button>';

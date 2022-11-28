@@ -51,11 +51,12 @@ class SecurityController extends AbstractController
             $lastname = $_POST['lastname'];
             $email = $_POST['email'];
             $admin = $_POST['admin'];
+            $gender = $_POST['gender'];
             if ($admin == true) {
                 $admin = 1;
             }else { $admin = 0; };
             $userManager = new UserManager(new PDOFactory());
-            $userManager->insertUser($formUsername,$formPwd,$firstname,$lastname,$email,$admin);
+            $userManager->insertUser($formUsername,$formPwd,$firstname,$lastname,$email,$admin,$gender);
             header("Location: /login");
             exit; 
             

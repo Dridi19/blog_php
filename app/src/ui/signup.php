@@ -21,6 +21,14 @@
         <input type="text" name="lastname"><br>
         Is admin ? : 
         <input type='checkbox' name='admin' value='off'><br>
+        Gender: 
+        <select name="gender" id="gender">
+            <option value="">--Please choose an option--</option>
+        <option value="male">male</option>
+        <option value="female">female</option>
+        </select>
+        <br>
+   
 
         Password :
         <input type="password" name="password"><br>
