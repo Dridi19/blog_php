@@ -51,9 +51,8 @@ class SecurityController extends AbstractController
             $firstname = $_POST['firstname'];
             $lastname = $_POST['lastname'];
             $email = $_POST['email'];
-            $admin = $_POST['admin'];
             $gender = $_POST['gender'];
-            if ($admin == true) {
+            if (isset($_POST['admin'])) {
                 $admin = 1;
             }else { $admin = 0; };
             $userManager = new UserManager(new PDOFactory());
@@ -74,5 +73,15 @@ class SecurityController extends AbstractController
         session_destroy();
         header('Location: /login');
         exit(); 
+    }
+    #[Route('/users', name: "users", methods: ["GET","POST"])]
+    public function users() {
+        if($_SESSION && $_SESSION['admin'] ==1 ) {
+            $path = "src/views/users.php";
+            require_once $path;
+        }else {
+            header('Location: /login');
+            exit(); 
+        }
     }
 }

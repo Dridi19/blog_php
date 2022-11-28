@@ -27,7 +27,7 @@
 /** @var App\Entity\Post[] $posts */
 foreach ($posts as $post) {
     echo '<div class="card">'. $post->getContent().'</div>';
-    if ( $_SESSION && ($post->getAuthor() == $_SESSION["id"] || $_SESSION["admin"])) {
+    if ( $_SESSION && ($post->getAuthor() == $_SESSION["id"] || $_SESSION["admin"] == 1)) {
         $id = $post->getId();
         echo '<button class="btn" type="submit" name="post_btn"><a href="/post/'.$id.'/delete">delete</a></button>';
         echo '<button class="btn" type="submit" name="post_btn"><a href="/post/'.$id.'/update">Update</a></button>';
