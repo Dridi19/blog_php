@@ -6,6 +6,8 @@
  border: 1px solid black;
  border-radius:3px;
  background-color:rgba(180, 180, 180, 0.501) ;
+ width: 50%;
+
 }
 </style> 
 <?php /** @var App\Entity\User $user */ ?>
