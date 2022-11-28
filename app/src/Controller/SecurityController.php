@@ -76,6 +76,7 @@ class SecurityController extends AbstractController
     }
     #[Route('/users', name: "users", methods: ["GET","POST"])]
     public function users() {
+        session_start();
         if($_SESSION && $_SESSION['admin'] ==1 ) {
             $path = "src/views/users.php";
             require_once $path;
