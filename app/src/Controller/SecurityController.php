@@ -31,6 +31,7 @@ class SecurityController extends AbstractController
         }
         if ($user->passwordMatch($formPwd)) {
             $id = $user->getId();
+            $_SESSION["admin"] = $user->getRoles();
             $_SESSION["id"] = $id;
         }
 
