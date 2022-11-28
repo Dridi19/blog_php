@@ -11,10 +11,13 @@
 }
 </style> 
 <?php /** @var App\Entity\User $user */ ?>
-<a href="/login">Log in</a>
-<a href="/logout">Logout</a>
+<?php if ($_SESSION){
+    echo '<a href="/logout">Logout</a>';
+    }else{
+        echo '<a href="/login">Log in</a>';
+    }?>
 <h1><?= $trucs; ?></h1>
-    <?php if ($_SESSION["id"]){
+    <?php if ($_SESSION){
     echo '<form action="" method="POST">
         <input type="text" placeholder="content" name="content">
         <button class="btn" type="submit" name="post_btn" >Create</button>
@@ -24,7 +27,7 @@
 /** @var App\Entity\Post[] $posts */
 foreach ($posts as $post) {
     echo '<div class="card">'. $post->getContent().'</div>';
-    if ( $post->getAuthor() == $_SESSION["id"]) {
+    if ( $_SESSION && ($post->getAuthor() == $_SESSION["id"] || $_SESSION["admin"])) {
         $id = $post->getId();
         echo '<button class="btn" type="submit" name="post_btn"><a href="/post/'.$id.'/delete">delete</a></button>';
         echo '<button class="btn" type="submit" name="post_btn"><a href="/post/'.$id.'/update">Update</a></button>';

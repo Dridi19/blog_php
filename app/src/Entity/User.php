@@ -130,7 +130,6 @@ class User extends BaseEntity implements UserInterface, PasswordProtectedInterfa
     public function getRoles()
     {
         $roles = $this->roles;
-        $roles = "ROLE_USER";
         return $roles;
     }
 
@@ -156,8 +155,6 @@ class User extends BaseEntity implements UserInterface, PasswordProtectedInterfa
 
     public function passwordMatch(string $plainPwd): bool
     {
-       
-        $wa = $plainPwd === $this->password;
-        return $wa;
+        return $plainPwd === $this->password;
     }
 }
